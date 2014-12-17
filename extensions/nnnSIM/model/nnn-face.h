@@ -62,14 +62,9 @@ class REN;
 class DEN;
 class INF;
 
-/**
- * \ingroup nnn
- * \defgroup nnn-face Faces
- */
 
 /**
  * \class 	Face
- * \ingroup nnn-face
  * \brief 	Virtual class defining NNN face
  *
  * This class defines basic functionality of NNN face. Face is core
@@ -83,11 +78,6 @@ class Face :
 public:
 	static TypeId
 
-	/**
-	 * \brief NDN protocol handlers
-	 * \param Face 		Face from which packet has been received
-	 * \param packet 	Original packet
-	 */
 	GetTypeId ();
 
 
@@ -130,47 +120,66 @@ public:
 	UnRegisterProtocolHandlers ();
 
 	/**
-	 * @brief Send out NULL packet through the Face
-	 * @param NULL packet to send out
-	 * @param packet NULL packet payload
-	 *
-	 * @returns true if NULL packet is considered to be send out (enqueued)
+	 * \brief	Sends out nnn NULL packet through the face
+	 * \param 	n_o Smart pointer to NULLp class variable
+	 * \return 	TRUE if nnn NULL packet is considered to be send out (enqueued)
 	 */
 	virtual bool
 	SendNULLp (Ptr<const NULLp> n_o);
 
 	/**
-	 * @brief Send out SO through the Face
-	 * @param SO SO to send out
-	 * @param packet "payload" that is attached to the SO (can carry some packet tags)
-	 *
-	 * @returns true if SO is considered to be send out (enqueued)
+	 * \brief	Sends out SO packet through the face
+	 * \param 	so_o Smart pointer to SO class variable
+	 * \return 	TRUE if SO is considered to be send out (enqueued)
 	 */
 	virtual bool
 	SendSO (Ptr<const SO> so_o);
 
 	/**
-	 * @brief Send out DO packet through the Face
-	 * @param DO DO packet to send out
-	 * @param packet DO packet payload, can also carry packet tags
-	 *
-	 * @returns true if DO packet is considered to be send out (enqueued)
+	 * \brief	Sends out DO packet through the face
+	 * \param	do_o Smart pointer to DO class variable
+	 * \return	TRUE if DO packet is considered to be send out (enqueued)
 	 */
 	virtual bool
 	SendDO (Ptr<const DO> do_o);
 
+	/**
+	 * \brief	Sends out EN packet through the face
+	 * \param	en_o Smart pointer to EN class variable
+	 * \return	TRUE if DO packet is considered to be send out (enqueued)
+	 */
 	virtual bool
 	SendEN (Ptr<const EN> en_o);
 
+	/**
+	 * \brief	Sends out AEN packet through the face
+	 * \param	aen_o Smart pointer to AEN class variable
+	 * \return	TRUE if AEN packet is considered to be send out (enqueued)
+	 */
 	virtual bool
 	SendAEN (Ptr<const AEN> aen_o);
 
+	/**
+	 * \brief	Sends out REN packet through the face
+	 * \param	ren_o Smart pointer to AEN class variable
+	 * \return	TRUE if REN packet is considered to be send out (enqueued)
+	 */
 	virtual bool
 	SendREN (Ptr<const REN> ren_o);
 
+	/**
+	 * \brief	Sends out DEN packet through the face
+	 * \param	den_o Smart pointer to AEN class variable
+	 * \return	TRUE if DEN packet is considered to be send out (enqueued)
+	 */
 	virtual bool
 	SendDEN (Ptr<const DEN> den_o);
 
+	/**
+	 * \brief	Sends out INF packet through the face
+	 * \param	inf_o Smart pointer to AEN class variable
+	 * \return	TRUE if INF packet is considered to be send out (enqueued)
+	 */
 	virtual bool
 	SendINF (Ptr<const INF> inf_o);
 
@@ -356,10 +365,12 @@ private:
 	DENHandler m_upstreamDENHandler;
 	INFHandler m_upstreamINFHandler;
 	bool m_ifup;
-	uint32_t m_id; ///< \brief id of the interNN_Face in NNN stack (per-node uniqueness)
+	uint32_t m_id; ///< \var id of the interNN_Face in NNN stack (per-node uniqueness)
 	uint16_t m_metric; ///< \brief metric of the Face
 	uint32_t m_flags; ///< @brief NN_Faces flags (e.g., APPLICATION)
-};
+
+}; //Class ends here
+
 std::ostream&
 operator<< (std::ostream& os, const Face &face);
 
