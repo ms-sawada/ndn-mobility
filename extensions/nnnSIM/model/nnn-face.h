@@ -23,7 +23,7 @@
  *	\author		Zhu Li, Jairo Eduardo Lopez
  *	\copyright	Waseda University, Sato Laboratory
  *	\date		2014
- *	\brief		[brief description]
+ *	\brief		Interface abstraction for interfaces used by nnn layer
  *	\details	[detailed description]
  */
 
