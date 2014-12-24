@@ -119,6 +119,8 @@ public:
 	virtual void
 	UnRegisterProtocolHandlers ();
 
+/********** Send *********/
+
 	/**
 	 * \brief	Sends out nnn NULL packet through the face
 	 * \param 	n_o Smart pointer to NULLp class variable
@@ -183,42 +185,70 @@ public:
 	virtual bool
 	SendINF (Ptr<const INF> inf_o);
 
+/********* Receive ********/
+
 	/**
-	 * \brief Receive NULL from application or another node and forward it up to the NDN stack
-	 *
+	 * \brief	Receives nnn NULL packet from application or another node and forwards it up to the NDN stack
+	 * \param	n_i
+	 * \return	TRUE if the packet was received and placed in the stack
 	 * By default it is called from inside Receive method, but can be used directly, if appropriate
 	 */
 	virtual bool
 	ReceiveNULLp (Ptr<NULLp> n_i);
 
 	/**
-	 * \brief Receive SO from application or another node and forward it up to the NDN stack
-	 *
-	 * By default it is called from inside Receive method, but can be used directly, if appropriate
+	 * \brief	Receives SO packet from application or another node and forwards it up to the NDN stack
+	 * \param	so_i
+	 * \return	TRUE if the packet was received and placed in the stack
 	 */
 	virtual bool
 	ReceiveSO (Ptr<SO> so_i);
 
 	/**
-	 * \brief Receive DO packet from application or another node and forward it up to the NDN stack
-	 *
-	 * By default it is called from inside Receive method, but can be used directly, if appropriate
+	 * \brief	Receives DO packet from application or another node and forwards it up to the NDN stack
+	 * \param	do_i
+	 * \return	TRUE if the packet was received and placed in the stack
 	 */
 	virtual bool
 	ReceiveDO (Ptr<DO>  do_i);
 
+	/**
+	 * \brief	Receives EN packet from application or another node and forwards it up to the NDN stack
+	 * \param	en_i
+	 * \return	TRUE if the packet was received and placed in the stack
+	 */
 	virtual bool
 	ReceiveEN (Ptr<EN> en_i);
 
+	/**
+	 * \brief	Receives AEN packet from application or another node and forwards it up to the NDN stack
+	 * \param	aen_i
+	 * \return	TRUE if the packet was received and placed in the stack
+	 */
 	virtual bool
 	ReceiveAEN (Ptr<AEN> aen_i);
 
+	/**
+	 * \brief	Receives REN packet from application or another node and forwards it up to the NDN stack
+	 * \param	ren_i
+	 * \return	TRUE if the packet was received and placed in the stack
+	 */
 	virtual bool
 	ReceiveREN (Ptr<REN> ren_i);
 
+	/**
+	 * \brief	Receives DEN packet from application or another node and forwards it up to the NDN stack
+	 * \param	den_i
+	 * \return	TRUE if the packet was received and placed in the stack
+	 */
 	virtual bool
 	ReceiveDEN (Ptr<DEN> den_i);
 
+	/**
+	 * \brief	Receives INF packet from application or another node and forwards it up to the NDN stack
+	 * \param	inf_i
+	 * \return	TRUE if the packet was received and placed in the stack
+	 */
 	virtual bool
 	ReceiveINF (Ptr<INF> inf_i);
 
